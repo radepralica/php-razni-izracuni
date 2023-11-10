@@ -1,0 +1,49 @@
+.activ.activs::after {
+  content: '';
+  height: 2px;
+  width: 100%;
+  background: deepskyblue;
+  display: block;
+  left: 0;
+  bottom: -11px;
+  opacity: 1;
+}
+
+.jumbotrons {
+  padding: 1rem 1rem;
+  margin-bottom: 2rem;
+  background: #aaafb1;
+  border-radius: 1.5rem;
+  height: 5rem;
+}
+.activs::after {
+  content: '';
+  height: 2px;
+  width: 100%;
+  background: deepskyblue;
+  display: block;
+  left: 0;
+  bottom: 0px;
+  opacity: 0;
+  transition: 2.2s;
+  pointer-events: none;
+}
+.activs:hover::after {
+  opacity: 1;
+}
+.navs {
+  position: fixed;
+  top: 0;
+  margin-left: 18.9rem;
+}
+
+body {
+  background-image: linear-gradient(
+    to right bottom,
+    #3cd4df,
+    #60cfec,
+    #84c9ef,
+    #a2c4ea,
+    #b7bfdf
+  );
+}

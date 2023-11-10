@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="utf-8">
+  <!-- Include Bootstrap 5 CSS and JavaScript -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <link rel="shortcut icon" href="fav.png">
+  <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<title>Prosjek</title>
+
+<body style="background-image: linear-gradient(
+  to right bottom,
+  #3cd4df,
+  #60cfec,
+  #84c9ef,
+  #a2c4ea,
+  #b7bfdf
+);">
+  <br>
+  <nav class="shadow p-3 mb-5 bg-body rounded navbar navbar-expand navbar-light bg-light container">
+
+    <ul class="navbar-nav ">
+      <li  class="navitem img-responsive "><a href="index.php"><img class="data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-html="true" title="Home" src="logo.png" alt=""></a></li>
+      <li class="navitem "><a href="index.php" class="nav-link activs">Procenat</a></li>
+      <li class="navitem"><a href="razlikedatuma.php" class="nav-link activs">Razlike datuma</a> </li>
+      <li class="navitem"><a href="prosjek.html" class="nav-link activs activ">Prosjek</a></li>
+
+    </ul>
+  </nav>
+
+
+
+
+
+  <br><br><br>
+  <div class="container">
+    <div class="row">
+      <div class="col-6 offset-3">
+
+        <textarea class="shadow p-3 mb-5 bg-body rounded form-control" name="" id="upis" cols="30" rows="10"></textarea>
+
+        <br><br>
+        <input type="text" id="result" class=" form-control"><br><br>
+        <button id="btnCalc" class="btn btn-lg btn-danger text-white fw-bold offset-4">Izračunaj prosjek </button>
+
+      </div>
+    </div>
+  </div>
+
+  <br><br><br>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-6 offset-3">
+
+        <input class="form-control" type="datetime-local" id="start_date" placeholder="Početni datum"><br>
+
+
+        <input class="form-control" type="datetime-local" id="end_date" placeholder="Krajnji datum"><br>
+
+        <button class="btn btn-lg btn-secondary offset-4" id="btnDiff">Razlika dana</button><br>
+        <br>
+        <div id="res">
+          <input class="form-control" type="text" id="results" placeholder="Rezultat">
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+
+  <br><br>
+
+
+  
+
+
+  <link rel="stylesheet" type="text/css" href="https://npmcdn.com/flatpickr/dist/themes/material_blue.css">
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+  <script src="script.js"></script>
+
+<script>
+    //Flatpickr
+config = {
+  altInput: true,
+  altFormat: 'd.m.Y',
+  dateFormat: 'Y-m-d',
+};
+flatpickr('input[type=datetime-local]', config);
+  </script>
+<br>
+<div class="container">
+    <div class="row">
+        <br>
+        <div style="box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px; background:#C0C0C0"  class="col-12   rounded ">
+<br>
+<h3 class="text-center text-primary">Copyright &copy by Matejko Team</h3><br>
+        </div>
+    </div>
+</div>
+<br>
+</body>
+
+</html>
