@@ -19,11 +19,11 @@ if (isset($_POST['calcKol'])) {
 
     if (!array_filter($errors)) {
         $kolRez = calcKol($kolUkupno, $kolProc);
-        header("Location:index.php#procenat");
+      
     }
 
 
-    // header("Location:index.php");
+    
 
 
 
@@ -48,17 +48,9 @@ if (isset($_POST['calcProc'])) {
     if (!array_filter($errors)) {
 
         $procRez = calcProc($procUkupno, $procKol);
-        header("Location:index.php#procenat");
+       
     }
-   
 }
-
-
-
-
-
-
-
 ?>
 
 
