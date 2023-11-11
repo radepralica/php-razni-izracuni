@@ -19,6 +19,7 @@ if (isset($_POST['calcKol'])) {
 
     if (!array_filter($errors)) {
         $kolRez = calcKol($kolUkupno, $kolProc);
+        header("Location:index.php#procenat");
     }
 
 
@@ -47,7 +48,9 @@ if (isset($_POST['calcProc'])) {
     if (!array_filter($errors)) {
 
         $procRez = calcProc($procUkupno, $procKol);
+        header("Location:index.php#procenat");
     }
+   
 }
 
 
@@ -59,8 +62,9 @@ if (isset($_POST['calcProc'])) {
 ?>
 
 
-<form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
+<form action="<?php echo 'index.php'; ?>" method="POST">
     <br><br>
+    <section id="procenat"></section>
     <div class="shadow p-3 mb-5 bg-body rounded container ">
         <div class="row">
             <div class="col-6 bg-info border border-light border-3">
@@ -96,14 +100,14 @@ if (isset($_POST['calcProc'])) {
                 <br>
 
                 <h2 class="text-light text-center">Računanje Procenta</h2>
-                <input class="form-control" type="number" name="procUkupno" placeholder="Upiši ukupno" value="<?php echo $procUkupno ?>"><br>
+                <input class="form-control" type="number" name="procUkupno" min="1" placeholder="Upiši ukupno" value="<?php echo $procUkupno ?>"><br>
                 <?php if ($errors['procukupno']) : ?>
                     <div style="height:2.2em;"  class="alert alert-sm alert-danger text-center fw-bold  alert-dismissible fade show" role="alert">
                         <p style="margin-top:-10px"><?php echo $errors['procukupno'] ?></p>
                         <button style="margin-top:-10px" type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                     </div>
                 <?php endif ?>
-                <input class="form-control" type="number" name="procKol" placeholder="Upiši količinu" value="<?php echo $procKol ?>"><br>
+                <input class="form-control" type="number" name="procKol" min="1" placeholder="Upiši količinu" value="<?php echo $procKol ?>"><br>
                 <?php if ($errors['prockol']) : ?>
                     <div style="height:2.2em;"  class="alert alert-sm alert-danger text-center fw-bold  alert-dismissible fade show" role="alert">
                         <p style="margin-top:-10px"><?php echo $errors['prockol'] ?></p>

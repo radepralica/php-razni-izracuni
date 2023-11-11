@@ -1,11 +1,14 @@
 <?php 
 if(isset($_POST['calcKamata'])){
 
-$pocetak=$_POST['pocetak'];
-$kraj=$_POST['kraj'];
-$dug=$_POST['dug'];
-$stopa=$_POST['stopa'];
-$vrijednost=$_POST['vrijednost'];
+$pocetak=htmlspecialchars($_POST['pocetak']);
+$kraj=htmlspecialchars($_POST['kraj']);
+$dug=filter_var($_POST['dug'], FILTER_SANITIZE_NUMBER_FLOAT);
+$stopa=filter_var($_POST['stopa'], FILTER_SANITIZE_NUMBER_FLOAT);
+$vrijednost=filter_var($_POST['vrijednost'], FILTER_SANITIZE_NUMBER_FLOAT);
+
+filter_var($_POST['vrijednost'], FILTER_SANITIZE_NUMBER_FLOAT);
+
 
 $date1=strtotime($pocetak);
 $date2=strtotime($kraj);
@@ -20,9 +23,10 @@ $errors['razlika']='Datum kašnjenja mora biti veći';
 }
 else{
     $rezKamate=($days*$dug*$stopa)/100;
+   
 }
 
-
+ 
 
 
 }
@@ -45,16 +49,16 @@ $curr=date("d.m.Y");
     <h3 class="shadow p-3 mb-5   text-center bg-warning rounded p-3">Računanje kamate po danima</h3>
 </div>
 <br>
-<?php if ($errors['razlika']) : ?>
-                    <div   class="alert bg-danger text-white container-sm text-center fw-bold w-75 alert-dismissible fade show" role="alert">
-                      <strong> <?php echo $errors['razlika'] ?></strong>
-                        <button  type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                    </div>
-                <?php endif ?>
-<form action="<?php echo $_SERVER['PHP_SELF'];?>" method="post">
-
+<form action="<?php echo 'index.php#kamata';?>" method="post">
+    <section id="kamata"></section>
     <div class="container">
         <br><br>
+        <?php if ($errors['razlika']) : ?>
+                            <div   class="alert bg-danger text-white container text-center fw-bold  alert-dismissible fade show" role="alert">
+                              <h2> <?php echo $errors['razlika'] ?></h2>
+                                <button  type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                            </div>
+                        <?php endif ?>
         <div class="row bg-info" style="  width:100%;overflow:auto;white-space:nowrap;">
 
             <div class="col-1">
@@ -75,7 +79,7 @@ $curr=date("d.m.Y");
             </div>
             <div class="col-2">
                 <label for="" class="ps-5 form-label">Dug</label>
-                <input type="number" class="form-control" name="dug" value="100">
+                <input type="number" class="form-control" min="1" name="dug" value="100">
 
             </div>
 
