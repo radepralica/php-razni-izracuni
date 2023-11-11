@@ -7,9 +7,7 @@ if (isset($_POST['calcKol'])) {
     $kolUkupno = filter_var($_POST['kolUkupno'], FILTER_SANITIZE_NUMBER_INT);
     $kolRez = filter_var($_POST['kolRez'], FILTER_SANITIZE_NUMBER_FLOAT);
 
-
     $errors = ['kolproc' => '', 'kolukupno' => '', 'prockol' => '', 'procukupno' => ''];
-
     if (empty($_POST['kolProc'])) {
         $errors['kolproc'] = 'Upišite procenat';
     }
@@ -19,15 +17,7 @@ if (isset($_POST['calcKol'])) {
 
     if (!array_filter($errors)) {
         $kolRez = calcKol($kolUkupno, $kolProc);
-      
     }
-
-
-    
-
-
-
-
 }
 
 if (isset($_POST['calcProc'])) {
@@ -46,14 +36,10 @@ if (isset($_POST['calcProc'])) {
     }
 
     if (!array_filter($errors)) {
-
         $procRez = calcProc($procUkupno, $procKol);
-       
     }
 }
 ?>
-
-
 <form action="<?php echo 'index.php'; ?>" method="POST">
     <br><br>
     <section id="procenat"></section>
@@ -84,8 +70,6 @@ if (isset($_POST['calcProc'])) {
 
                 <button type="submit" name="calcKol" class="btn btn-success offset-5">Izračunaj</button><br><br><br>
 
-
-
             </div>
 
             <div class="col-6 bg-primary border border-light border-3">
@@ -108,9 +92,6 @@ if (isset($_POST['calcProc'])) {
                 <?php endif ?>
                 <input class="form-control" type="text" name="procRez" value="<?php echo $procRez ?> " disabled><br>
                 <button name="calcProc" class="btn btn-success offset-5">Izračunaj</button><br><br><br>
-
-
-
             </div>
         </div>
     </div>
